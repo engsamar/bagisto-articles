@@ -1,0 +1,8 @@
+php artisan package:make-model Article ACME/Articles
+php artisan package:make-model ArticleTranslation ACME/Articles
+
+
+php artisan package:make-migration CreateArticlesTable ACME/Articles
+php artisan package:make-migration CreateArticleTranslationsTable ACME/Articles
+
+php artisan package:make-datagrid ArticleDataGrid ACME/Articles

@@ -1,0 +1,59 @@
+# Article Related APIs
+type Query {
+    articles: [Article!]
+        @paginate(
+            type: "paginator"
+            defaultCount: 10
+            model: "ACME\\Articles\\Models\\Article"
+        )
+
+    article(id: ID @eq): Article @find(model: "ACME\\Articles\\Models\\Article")
+}
+
+input FilterArticleInput {
+    id: Int
+    name: String
+    status: Boolean
+    position: Int
+}
+
+type FilterableAttribute {
+    id: ID!
+    code: String!
+    adminName: String! @rename(attribute: "admin_name")
+    type: String!
+    validation: String
+    position: Int!
+    isFilterable: Int! @rename(attribute: "is_filterable")
+    # article: Category! @belongsTo(relation: "article")
+}
+
+type Translation {
+    id: ID!
+    name: String!
+    slug: String!
+    description: String!
+    metaTitle: String @rename(attribute: "meta_title")
+    metaDescription: String @rename(attribute: "meta_description")
+    metaKeywords: String @rename(attribute: "meta_keywords")
+    article_id: ID! @rename(attribute: "article_id")
+    locale: String!
+    localeId: ID @rename(attribute: "locale_id")
+    urlPath: String @rename(attribute: "url_path")
+}
+
+type Article {
+    id: ID!
+    name: String!
+    title: String!
+    description: String!
+    slug: String!
+    urlPath: String @rename(attribute: "url_path")
+    image: String
+    imageUrl: String @rename(attribute: "image_url")
+    metaTitle: String @rename(attribute: "meta_title")
+    metaDescription: String @rename(attribute: "meta_description")
+    metaKeywords: String @rename(attribute: "meta_keywords")
+    position: Int!
+    status: Boolean!
+}
