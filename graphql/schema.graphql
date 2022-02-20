@@ -5,4 +5,6 @@ scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 scalar DateTime
     @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
 
-#import article.graphql
+#import ../vendor/bagisto/graphql-api/src/graphql/schema.graphql
+
+#import ../packages/ACME/Articles/src/graphql/article.graphql
